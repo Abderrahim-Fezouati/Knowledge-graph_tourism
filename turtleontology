@@ -1,0 +1,51 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix hotel: <http://example.com/hotels#> .
+
+hotel:Hotel rdf:type owl:Class ;
+    rdfs:label "Hotel" ;
+    rdfs:comment "A type of accommodation that provides overnight lodging to tourists." .
+
+hotel:Review rdf:type owl:Class ;
+    rdfs:label "Review" ;
+    rdfs:comment "A written or spoken evaluation of a tourist's experience at a hotel." .
+
+hotel:Price rdf:type owl:Class ;
+    rdfs:label "Price" ;
+    rdfs:comment "The cost of a room at a hotel." .
+
+hotel:Website rdf:type owl:Class ;
+    rdfs:label "Website" ;
+    rdfs:comment "The online presence of a hotel, where potential guests can find information and make reservations." .
+
+hotel:hasReview rdf:type owl:ObjectProperty ;
+    rdfs:label "has review" ;
+    rdfs:comment "Indicates that a hotel has a review." ;
+    rdfs:domain hotel:Hotel ;
+    rdfs:range hotel:Review .
+
+hotel:hasPrice rdf:type owl:ObjectProperty ;
+    rdfs:label "has price" ;
+    rdfs:comment "Indicates that a hotel has a price." ;
+    rdfs:domain hotel:Hotel ;
+    rdfs:range hotel:Price .
+
+hotel:hasWebsite rdf:type owl:ObjectProperty ;
+    rdfs:label "has website" ;
+    rdfs:comment "Indicates that a hotel has a website." ;
+    rdfs:domain hotel:Hotel ;
+    rdfs:range hotel:Website .
+
+hotel:value rdf:type owl:DatatypeProperty ;
+    rdfs:label "value" ;
+    rdfs:comment "The numerical value of a price." ;
+    rdfs:domain hotel:Price ;
+    rdfs:range xsd:decimal .
+
+hotel:url rdf:type owl:DatatypeProperty ;
+    rdfs:label "URL" ;
+    rdfs:comment "The web address of a website." ;
+    rdfs:domain hotel:Website ;
+    rdfs:range xsd:anyURI .
