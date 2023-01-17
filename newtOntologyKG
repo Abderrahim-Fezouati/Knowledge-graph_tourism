@@ -12,11 +12,11 @@ hotel:Review rdf:type owl:Class ;
     rdfs:label "Review" ;
     rdfs:comment "A written or spoken evaluation of a tourist's experience at a hotel." .
 
-hotel:Price rdf:type owl:Class ;
+hotel:HotelPrice rdf:type owl:Class ;
     rdfs:label "Price" ;
     rdfs:comment "The cost of a room at a hotel." .
 
-hotel:Address rdf:type owl:Class ;
+hotel:HotelAddress rdf:type owl:Class ;
     rdfs:label "Address" ;
     rdfs:comment "The location of a hotel." .
 
