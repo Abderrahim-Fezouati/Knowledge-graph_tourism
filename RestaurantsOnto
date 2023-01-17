@@ -1,0 +1,45 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix restaurant: <http://example.com/restaurants#> .
+
+restaurant:Restaurant rdf:type owl:Class ;
+    rdfs:label "Restaurant" ;
+    rdfs:comment "A type of place where people go to eat." .
+
+restaurant:RestaurantPrice rdf:type owl:Class ;
+    rdfs:label "Restaurant Price" ;
+    rdfs:comment "The cost of a meal at a restaurant." .
+
+restaurant:RestaurantAddress rdf:type owl:Class ;
+    rdfs:label "Restaurant Address" ;
+    rdfs:comment "The location of a restaurant." .
+
+restaurant:RestaurantWebsite rdf:type owl:Class ;
+    rdfs:label "Restaurant Website" ;
+    rdfs:comment "The online presence of a restaurant, where potential guests can find information and make reservations." .
+
+restaurant:Review rdf:type owl:DatatypeProperty ;
+    rdfs:label "Review" ;
+    rdfs:comment "Indicates that a restaurant has a review." ;
+    rdfs:domain restaurant:Restaurant ;
+    rdfs:range xsd:string .
+
+restaurant:hasRestaurantPrice rdf:type owl:ObjectProperty ;
+    rdfs:label "has restaurant price" ;
+    rdfs:comment "Indicates that a restaurant has a price." ;
+    rdfs:domain restaurant:Restaurant ;
+    rdfs:range restaurant:RestaurantPrice .
+
+restaurant:hasRestaurantAddress rdf:type owl:ObjectProperty ;
+    rdfs:label "has restaurant address" ;
+    rdfs:comment "Indicates that a restaurant has an address." ;
+    rdfs:domain restaurant:Restaurant ;
+    rdfs:range restaurant:RestaurantAddress .
+
+restaurant:hasRestaurantWebsite rdf:type owl:ObjectProperty ;
+    rdfs:label "has restaurant website" ;
+    rdfs:comment "Indicates that a restaurant has a website." ;
+    rdfs:domain restaurant:Restaurant ;
+    rdfs:range restaurant:RestaurantWebsite .
