@@ -1,45 +1,53 @@
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix : <http://onto.neo4j.com/restaurant#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix hotel: <http://example.com/hotels#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://onto.neo4j.com/restaurant#> .
 
-hotel:Hotel rdf:type owl:Class ;
-    rdfs:label "Hotel" ;
-    rdfs:comment "A type of accommodation that provides overnight lodging to tourists." .
+<http://onto.neo4j.com/restaurant#> rdf:type owl:Ontology .
 
-hotel:Review rdf:type owl:Class ;
-    rdfs:label "Review" ;
-    rdfs:comment "A written or spoken evaluation of a tourist's experience at a hotel." .
+#################################################################
+#    Object Properties
+#################################################################
 
-hotel:HotelPrice rdf:type owl:Class ;
-    rdfs:label "Price" ;
-    rdfs:comment "The cost of a room at a hotel." .
+###  http://onto.neo4j.com/restaurant#hasRestaurantPrice
+:hasRestaurantPrice rdf:type owl:ObjectProperty ;
+         rdfs:domain :Restaurant ;
+         rdfs:range :RestaurantPrice .
 
-hotel:HotelAddress rdf:type owl:Class ;
-    rdfs:label "Address" ;
-    rdfs:comment "The location of a hotel." .
+###  http://onto.neo4j.com/restaurant#hasRestaurantAddress
+:hasRestaurantAddress rdf:type owl:ObjectProperty ;
+         rdfs:domain :Restaurant ;
+         rdfs:range :RestaurantAddress .
 
-hotel:HotelPhoneNumber rdf:type owl:DatatypeProperty ;
-    rdfs:label "Hotel Phone Number" ;
-    rdfs:comment "Indicates that a hotel has a phone number." ;
-    rdfs:domain hotel:Hotel ;
-    rdfs:range xsd:string .
+###  http://onto.neo4j.com/restaurant#hasRestaurantWebsite
+:hasRestaurantWebsite rdf:type owl:ObjectProperty ;
+         rdfs:domain :Restaurant ;
+         rdfs:range :RestaurantWebsite .
 
-hotel:HotelReview rdf:type owl:DatatypeProperty ;
-    rdfs:label "Hotel Review" ;
-    rdfs:comment "Indicates that a hotel has a review." ;
-    rdfs:domain hotel:Hotel ;
-    rdfs:range xsd:string .
+#################################################################
+#    Data properties
+#################################################################
 
-hotel:HotelAddress rdf:type owl:ObjectProperty ;
-    rdfs:label "Hotel Address" ;
-    rdfs:comment "Indicates that a hotel has an address." ;
-    rdfs:domain hotel:Hotel ;
-    rdfs:range hotel:Address .
+###  http://onto.neo4j.com/restaurant#review
+:review rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Restaurant ;
+                  rdfs:range xsd:string .
 
-hotel:HotelPrice rdf:type owl:ObjectProperty ;
-    rdfs:label "Hotel Price" ;
-    rdfs:comment "Indicates that a hotel has a price." ;
-    rdfs:domain hotel:Hotel ;
-    rdfs:range hotel:Price .
+#################################################################
+#    Classes
+#################################################################
+
+###  http://onto.neo4j.com/restaurant#Restaurant
+:Restaurant rdf:type owl:Class .
+
+###  http://onto.neo4j.com/restaurant#RestaurantPrice
+:RestaurantPrice rdf:type owl:Class .
+
+###  http://onto.neo4j.com/restaurant#RestaurantAddress
+:RestaurantAddress rdf:type owl:Class .
+
+###  http://onto.neo4j.com/restaurant#RestaurantWebsite
+:RestaurantWebsite rdf:type owl:Class .
